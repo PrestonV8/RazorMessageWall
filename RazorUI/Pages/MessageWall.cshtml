@@ -1,0 +1,25 @@
+﻿@page
+@model RazorUI.Pages.MessageWallModel
+@{
+}
+
+<h1>Hello Preston!</h1>
+
+<form method="post">
+    <div class="form-group">
+        @for (int i = 0; i < Model.Messages.Count; i++)
+        {
+            <input type="hidden" asp-for="Messages[i]" />
+        }
+
+        <input asp-for="TypeMessage" type="text" placeholder="Type Something" />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+<h2>Messages:</h2>
+
+@foreach (var item in Model.Messages) 
+{
+    <h3>@item</h3>
+}
